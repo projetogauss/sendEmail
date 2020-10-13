@@ -9,7 +9,7 @@ smtp_server = 'smtp.gmail.com'
 port = 465
 #port to gmail without ssl
 # port = 587
-sender = 'tyagosampaio@gmail.com'
+sender = 'youremail@gmail.com'
 password = input('Enter your password here:')
 context = ssl.create_default_context()
 
@@ -51,11 +51,14 @@ message.attach(part1)
 message.attach(part2)
 message.attach(part_a)
 
-with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-    server.login(sender, password)
-    #send email
-    server.sendmail(sender,receiver, message.as_string())
-    print('It worked')
+try:
+    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+        server.login(sender, password)
+        #send email
+        server.sendmail(sender,receiver, message.as_string())
+        print('It worked')
+except Exception as e:
+    print(e)
 
 #conection unsecurity with server without ssl
 """

@@ -1,6 +1,6 @@
 import csv, smtplib, ssl
 
-sender  = 'tyagosampaio@gmail.com'
+sender  = 'youremail@gmail.com'
 password = input('Type your password here:')
 message = """\
     From: {sender}
